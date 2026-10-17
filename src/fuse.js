@@ -77,9 +77,22 @@ export function initFuse() {
     el.addEventListener('animationend', () => el.classList.remove(cls), { once: true });
   };
 
+  // um voo de cada vez: um novo merge cancela o anterior em vez de sobrepor as letras
+  let flight = null;
+  const cancelFlight = () => {
+    if (!flight) return;
+    flight.timers.forEach(clearTimeout);
+    flight.layer.remove();
+    flight.chips.forEach((c) => c.classList.remove('is-flying'));
+    out.querySelectorAll('.g').forEach((g) => { g.style.opacity = ''; });
+    flight = null;
+  };
+
   // as letras saem das palavras escolhidas (deixando um rastro claro), fazem um arco
-  // e pousam no resultado; onde duas letras caem no mesmo lugar, a letra dá um pulso
+  // e pousam no resultado; onde duas letras caem no mesmo lugar, a letra dá um pulso.
+  // A camada fica nas coordenadas da página, então rolar durante o voo não desalinha nada.
   const fly = (chipA, chipB, left, overlap) => {
+    cancelFlight();
     if (reduceMotion.matches || !chipA || !chipB) return;
     const targets = [...out.querySelectorAll('.g')];
     if (!targets.length) return;
@@ -89,6 +102,11 @@ export function initFuse() {
     layer.className = 'fly-layer';
     layer.setAttribute('aria-hidden', 'true');
     document.body.append(layer);
+    const sx = window.scrollX;
+    const sy = window.scrollY;
+    const current = { layer, timers: [], chips: [chipA, chipB] };
+    flight = current;
+    const later = (fn, ms) => current.timers.push(setTimeout(fn, ms));
     const lands = new Array(targets.length).fill(0);
     const hits = new Array(targets.length).fill(0);
     let last = 0;
@@ -103,8 +121,8 @@ export function initFuse() {
         const ghost = document.createElement('span');
         ghost.className = 'fly';
         ghost.textContent = text[i];
-        ghost.style.left = `${rect.left}px`;
-        ghost.style.top = `${rect.top}px`;
+        ghost.style.left = `${rect.left + sx}px`;
+        ghost.style.top = `${rect.top + sy}px`;
         ghost.style.fontSize = `${size}px`;
         layer.append(ghost);
         const scale = destSize / size;
@@ -129,15 +147,18 @@ export function initFuse() {
     chipB.classList.add('is-flying');
     launch(chipA, (i) => i, 0);
     launch(chipB, (i) => (i < overlap ? left.length - overlap + i : left.length + i - overlap), 3);
-    targets.forEach((t, j) => setTimeout(() => {
+    targets.forEach((t, k) => later(() => {
       t.style.opacity = '';
-      settle(t, hits[j] > 1 ? 'is-shared' : 'is-landing');
-    }, lands[j]));
-    setTimeout(() => {
+      settle(t, hits[k] > 1 ? 'is-shared' : 'is-landing');
+    }, lands[k]));
+    later(() => {
       chipA.classList.remove('is-flying');
       chipB.classList.remove('is-flying');
     }, last - 200);
-    setTimeout(() => layer.remove(), last + 60);
+    later(() => {
+      layer.remove();
+      if (flight === current) flight = null;
+    }, last + 60);
   };
 
   /* ---------- linhas de nomes ---------- */

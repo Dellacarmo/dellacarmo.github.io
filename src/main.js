@@ -9,6 +9,7 @@ import { initMagnetic } from './magnetic.js';
 import { initMinimap } from './minimap.js';
 import { initCodeWater } from './codewater.js';
 import { initTeam, initYear, initScrub, initCopy } from './extras.js';
+import { initLog } from './log.js';
 
 const hero = initHero();
 const blocks = initBlocks();
@@ -22,6 +23,7 @@ initTeam();
 initYear();
 initScrub();
 initCopy();
+initLog();
 initMagnetic();
 initReveal();
 
