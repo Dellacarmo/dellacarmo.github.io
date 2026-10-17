@@ -22,7 +22,7 @@
 
   <!-- HERO: o merge que deu nome à organização.
        O branch do Felipe (amarelo) e o do Enzo (azul) convergem num nó verde exatamente sobre a junção
-       entre "della" e "carmo". Os traços são desenhados por script a partir das posições reais. -->
+       entre "della" e "carmo". Os rostos podem ser arrastados: os ramos esticam e o nome se separa. -->
   <header class="hero" id="topo">
     <div class="hero__panel">
       <svg class="graph" aria-hidden="true" focusable="false"></svg>
@@ -30,18 +30,23 @@
       <div class="hero__intro">
         <p class="hero__lead" data-rise style="--i:0">Organização de tecnologia de São Paulo. Criamos produtos web, aplicativos e IA, e aprendemos juntos a cada projeto.</p>
         <div data-rise style="--i:1"><a class="button magnetic" href="mailto:dellacarmo19@gmail.com?subject=Oi%2C%20Dellacarmo">Fale com a gente</a></div>
+        <p class="hero__hint" data-rise style="--i:2" hidden>Arraste um dos rostos: os sobrenomes se separam e voltam a se juntar.</p>
       </div>
 
-      <figure class="node node--felipe" data-pop style="--i:0">
-        <div class="node__face"><img src="./src/img/felipe-sq.jpg" width="510" height="510" alt="Felipe Medeiros" fetchpriority="high"></div>
-        <figcaption class="node__tag"><strong>Felipe Medeiros</strong> o Della do nome</figcaption>
-      </figure>
-      <figure class="node node--enzo" data-pop style="--i:1">
-        <div class="node__face"><img src="./src/img/enzo-sq.jpg" width="340" height="340" alt="Enzo Hessel"></div>
-        <figcaption class="node__tag"><strong>Enzo Hessel</strong> o Carmo do nome</figcaption>
-      </figure>
+      <div class="node node--felipe" data-pop style="--i:0">
+        <figure class="node__body">
+          <div class="node__face"><img src="./src/img/felipe-sq.jpg" width="510" height="510" alt="Felipe Medeiros" fetchpriority="high" draggable="false"></div>
+          <figcaption class="node__tag"><strong>Felipe Medeiros</strong> o Della do nome</figcaption>
+        </figure>
+      </div>
+      <div class="node node--enzo" data-pop style="--i:1">
+        <figure class="node__body">
+          <div class="node__face"><img src="./src/img/enzo-sq.jpg" width="340" height="340" alt="Enzo Hessel" draggable="false"></div>
+          <figcaption class="node__tag"><strong>Enzo Hessel</strong> o Carmo do nome</figcaption>
+        </figure>
+      </div>
 
-      <h1 class="mark" aria-label="Dellacarmo"><span class="mark__line"><span class="mark__della">della</span><span class="mark__carmo">carmo</span></span></h1>
+      <h1 class="mark" aria-label="Dellacarmo"><span class="mark__line"><span class="mark__della"><span class="mark__in">della</span></span><span class="mark__carmo"><span class="mark__in">carmo</span></span></span></h1>
     </div>
 
     <nav class="swatches" aria-label="Seções">
@@ -82,6 +87,7 @@
         </div>
 
         <div class="fuse__tools" hidden>
+          <button class="textlink" type="button" data-fuse="shuffle">Sortear uma fusão</button>
           <button class="textlink" type="button" data-fuse="edit">Testar com outros nomes</button>
           <button class="textlink" type="button" data-fuse="reset" hidden>Voltar para dellacarmo</button>
           <a class="textlink" data-fuse="send" href="mailto:dellacarmo19@gmail.com" hidden>Mandar essa fusão pra gente</a>
@@ -115,8 +121,9 @@
         <div class="area__text" data-reveal>
           <p class="area__lead"><strong>Produtos web.</strong> Sites e sistemas completos: interface rápida, API firme e dados bem modelados, publicados na nuvem.</p>
           <ul class="area__stack" aria-label="Tecnologias de web">
-            <li>React</li><li>Next.js</li><li>Angular</li><li>TypeScript</li><li>Vite</li><li>C# e .NET</li><li>ASP.NET Core</li><li>SQL Server</li><li>PostgreSQL</li><li>AWS</li><li>Microsserviços</li>
+            <li><button class="tech" type="button" data-by="enzo">React</button></li><li><button class="tech" type="button" data-by="enzo">Next.js</button></li><li><button class="tech" type="button" data-by="felipe">Angular</button></li><li><button class="tech" type="button" data-by="ambos">TypeScript</button></li><li><button class="tech" type="button" data-by="ambos">Vite</button></li><li><button class="tech" type="button" data-by="enzo">C# e .NET</button></li><li><button class="tech" type="button" data-by="enzo">ASP.NET Core</button></li><li><button class="tech" type="button" data-by="enzo">SQL Server</button></li><li><button class="tech" type="button" data-by="enzo">PostgreSQL</button></li><li><button class="tech" type="button" data-by="enzo">AWS</button></li><li><button class="tech" type="button" data-by="felipe">Microsserviços</button></li>
           </ul>
+          <p class="area__hint">Passe o ponteiro ou toque numa tecnologia para ver quem traz cada uma.</p>
         </div>
       </section>
 
@@ -125,7 +132,7 @@
         <div class="area__text" data-reveal>
           <p class="area__lead"><strong>Aplicativos.</strong> Apps para Android e iOS, nativos quando precisa e multiplataforma quando faz sentido, com acessibilidade desde o primeiro protótipo.</p>
           <ul class="area__stack" aria-label="Tecnologias de aplicativos">
-            <li>Flutter</li><li>Dart</li><li>Kotlin</li><li>Swift</li><li>React Native</li><li>PWA</li><li>Acessibilidade</li>
+            <li><button class="tech" type="button" data-by="felipe">Flutter</button></li><li><button class="tech" type="button" data-by="felipe">Dart</button></li><li><button class="tech" type="button" data-by="felipe">Kotlin</button></li><li><button class="tech" type="button" data-by="enzo">React Native</button></li><li><button class="tech" type="button" data-by="enzo">PWA</button></li><li><button class="tech" type="button" data-by="enzo">Acessibilidade</button></li>
           </ul>
         </div>
       </section>
@@ -135,7 +142,7 @@
         <div class="area__text" data-reveal>
           <p class="area__lead"><strong>IA aplicada.</strong> Modelos de linguagem dentro de produtos e automações que tiram o trabalho repetitivo do caminho. Testamos modelos rodando localmente, quantizados para caber em hardware comum.</p>
           <ul class="area__stack" aria-label="Tecnologias de IA">
-            <li>Python</li><li>Modelos de linguagem</li><li>llama.cpp</li><li>Quantização</li><li>Automação</li><li>Hackathons</li>
+            <li><button class="tech" type="button" data-by="felipe">Python</button></li><li><button class="tech" type="button" data-by="felipe">Modelos de linguagem</button></li><li><button class="tech" type="button" data-by="felipe">llama.cpp</button></li><li><button class="tech" type="button" data-by="felipe">Quantização</button></li><li><button class="tech" type="button" data-by="felipe">Automação</button></li><li><button class="tech" type="button" data-by="felipe">Hackathons</button></li>
           </ul>
         </div>
       </section>
@@ -183,54 +190,58 @@
       </article>
     </section>
 
-    <!-- PROCESSO: sanfona em tons de verde, do escuro ao claro -->
+    <!-- PROCESSO: um grafo de git que se desenha com a rolagem -->
     <section class="process" id="processo" aria-labelledby="processo-titulo">
       <div class="process__intro">
         <h2 class="display" id="processo-titulo" data-lines><span class="ln"><span>do rascunho</span></span> <span class="ln"><span>ao merge</span></span></h2>
-        <p class="process__text" data-reveal>Cada linha de código passa pelos olhos de outra pessoa antes de chegar à main. É assim que a gente aprende rápido e entrega com cuidado.</p>
+        <p class="process__text" data-reveal>Cada linha de código passa pelos olhos de outra pessoa antes de chegar à main. Role a página: o projeto nasce, se divide em dois ramos e volta a ser um só.</p>
       </div>
 
-      <div class="stages">
-        <section class="stage is-open" data-stage style="--tone:#1d3a18;--tone-ink:#f4f4f2;--i:0">
-          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="true" aria-controls="etapa-ideia"><span>ideia</span></button></h3>
-          <div class="stage__body" id="etapa-ideia">
-            <p class="stage__name" aria-hidden="true">ideia</p>
-            <p class="stage__text">Começa numa conversa: que problema vale resolver, e para quem. Anotamos o mínimo que precisa existir para testar a ideia.</p>
-            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M120 104 V320"/><circle cx="120" cy="76" r="28"/></svg>
-          </div>
-        </section>
-        <section class="stage" data-stage style="--tone:#2f5a27;--tone-ink:#f4f4f2;--i:1">
-          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-prototipo"><span>protótipo</span></button></h3>
-          <div class="stage__body" id="etapa-prototipo">
-            <p class="stage__name" aria-hidden="true">protótipo</p>
-            <p class="stage__text">Uma primeira versão rápida, só para ver se a ideia para em pé antes de investir semanas nela.</p>
-            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M120 0 V320"/><circle cx="120" cy="88" r="24"/><circle cx="120" cy="228" r="24"/></svg>
-          </div>
-        </section>
-        <section class="stage" data-stage style="--tone:#4d8a40;--tone-ink:#0a0a0a;--i:2">
-          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-branch"><span>branch</span></button></h3>
-          <div class="stage__body" id="etapa-branch">
-            <p class="stage__name" aria-hidden="true">branch</p>
-            <p class="stage__text">Cada um puxa a sua parte num branch próprio: web de um lado, mobile e IA do outro, sem pisar no pé de ninguém.</p>
-            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M70 0 V320"/><path d="M70 70 C70 140 170 110 170 180 V320"/><circle cx="70" cy="70" r="24"/><circle cx="170" cy="236" r="24"/><circle cx="70" cy="262" r="24"/></svg>
-          </div>
-        </section>
-        <section class="stage" data-stage style="--tone:#76b866;--tone-ink:#0a0a0a;--i:3">
-          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-revisao"><span>revisão</span></button></h3>
-          <div class="stage__body" id="etapa-revisao">
-            <p class="stage__name" aria-hidden="true">revisão</p>
-            <p class="stage__text">Nenhuma linha entra sem o outro ler. É na revisão que mais aprendemos: perguntas, sugestões, um jeito melhor de escrever a mesma coisa.</p>
-            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M70 0 V320"/><path d="M170 0 V320"/><path d="M170 112 C118 112 122 208 70 208"/><circle cx="170" cy="112" r="24"/><circle cx="70" cy="208" r="24"/></svg>
-          </div>
-        </section>
-        <section class="stage" data-stage style="--tone:#9ae187;--tone-ink:#0a0a0a;--i:4">
-          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-merge"><span>merge</span></button></h3>
-          <div class="stage__body" id="etapa-merge">
-            <p class="stage__name" aria-hidden="true">merge</p>
-            <p class="stage__text">As partes se juntam na main, como os dois sobrenomes no nome. O que pode ser aberto vai para o GitHub da organização.</p>
-            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M70 0 V320"/><path d="M170 0 V110 C170 180 70 160 70 226"/><circle cx="170" cy="62" r="22"/><circle cx="70" cy="226" r="34"/></svg>
-          </div>
-        </section>
+      <div class="story">
+        <div class="story__stage">
+          <svg class="story__graph" viewBox="0 0 400 900" aria-hidden="true" focusable="false">
+            <defs>
+              <clipPath id="clip-felipe"><circle cx="110" cy="430" r="25"/></clipPath>
+              <clipPath id="clip-enzo"><circle cx="290" cy="452" r="25"/></clipPath>
+            </defs>
+            <path class="g-line g-ink" d="M200 -20 V78" data-from="0" data-to="0.035"/>
+            <path class="g-line g-ink" d="M200 78 V262" data-from="0.2" data-to="0.36"/>
+            <path class="g-line g-lemon" d="M200 262 C200 330 110 318 110 392 V650" data-from="0.4" data-to="0.58"/>
+            <path class="g-line g-corn" d="M200 262 C200 330 290 318 290 392 V650" data-from="0.42" data-to="0.6"/>
+            <path class="g-arc g-lemon" d="M110 556 C190 556 214 608 290 608" data-from="0.62" data-to="0.7"/>
+            <path class="g-arc g-corn" d="M290 584 C210 584 186 636 110 636" data-from="0.68" data-to="0.76"/>
+            <path class="g-line g-lemon" d="M110 650 C110 722 200 704 200 772" data-from="0.8" data-to="0.9"/>
+            <path class="g-line g-corn" d="M290 650 C290 722 200 704 200 772" data-from="0.8" data-to="0.9"/>
+            <path class="g-line g-mint" d="M200 772 V930" data-from="0.92" data-to="1"/>
+            <g class="g-node" data-at="0.035"><circle class="g-fill-ink" cx="200" cy="78" r="20"/><circle class="g-hole" cx="200" cy="78" r="8"/></g>
+            <g class="g-node" data-at="0.27"><circle class="g-fill-ink" cx="200" cy="158" r="17"/><circle class="g-hole" cx="200" cy="158" r="7"/></g>
+            <g class="g-node" data-at="0.33"><circle class="g-fill-ink" cx="200" cy="226" r="17"/><circle class="g-hole" cx="200" cy="226" r="7"/></g>
+            <g class="g-node" data-at="0.49"><circle class="g-fill-lemon" cx="110" cy="430" r="31"/><image data-face="felipe" href="./src/img/felipe-sq.jpg" x="85" y="405" width="50" height="50" clip-path="url(#clip-felipe)" preserveAspectRatio="xMidYMid slice"/></g>
+            <g class="g-node" data-at="0.52"><circle class="g-fill-corn" cx="290" cy="452" r="31"/><image data-face="enzo" href="./src/img/enzo-sq.jpg" x="265" y="427" width="50" height="50" clip-path="url(#clip-enzo)" preserveAspectRatio="xMidYMid slice"/></g>
+            <g class="g-node" data-at="0.55"><circle class="g-fill-lemon" cx="110" cy="512" r="17"/><circle class="g-hole" cx="110" cy="512" r="7"/></g>
+            <g class="g-node" data-at="0.58"><circle class="g-fill-corn" cx="290" cy="536" r="17"/><circle class="g-hole" cx="290" cy="536" r="7"/></g>
+            <g class="g-node" data-at="0.7"><circle class="g-fill-lemon" cx="290" cy="608" r="11"/></g>
+            <g class="g-node" data-at="0.76"><circle class="g-fill-corn" cx="110" cy="636" r="11"/></g>
+            <g class="g-node" data-at="0.9"><circle class="g-fill-mint" cx="200" cy="772" r="28"/><circle class="g-hole" cx="200" cy="772" r="12"/></g>
+            <g class="g-node" data-at="0.98"><circle class="g-fill-mint" cx="200" cy="860" r="17"/><circle class="g-hole" cx="200" cy="860" r="7"/></g>
+          </svg>
+
+          <nav class="story__index" aria-label="Etapas do processo">
+            <button class="story__jump is-active" type="button">ideia</button>
+            <button class="story__jump" type="button">protótipo</button>
+            <button class="story__jump" type="button">branch</button>
+            <button class="story__jump" type="button">revisão</button>
+            <button class="story__jump" type="button">merge</button>
+          </nav>
+
+          <ol class="story__steps">
+            <li class="step is-active"><h3 class="step__name">ideia</h3><p class="step__text">Começa numa conversa: que problema vale resolver, e para quem. Anotamos o mínimo que precisa existir para testar a ideia.</p></li>
+            <li class="step"><h3 class="step__name">protótipo</h3><p class="step__text">Uma primeira versão rápida, só para ver se a ideia para em pé antes de investir semanas nela.</p></li>
+            <li class="step"><h3 class="step__name">branch</h3><p class="step__text">Cada um puxa a sua parte num branch próprio: web de um lado, mobile e IA do outro, sem pisar no pé de ninguém.</p></li>
+            <li class="step"><h3 class="step__name">revisão</h3><p class="step__text">Nenhuma linha entra sem o outro ler. É na revisão que mais aprendemos: perguntas, sugestões, um jeito melhor de escrever a mesma coisa.</p></li>
+            <li class="step"><h3 class="step__name">merge</h3><p class="step__text">As partes se juntam na main, como os dois sobrenomes no nome. O que pode ser aberto vai para o GitHub da organização.</p></li>
+          </ol>
+        </div>
       </div>
     </section>
 
