@@ -1,0 +1,15 @@
+{
+  "name": "dellacarmo-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Site institucional da organização Dellacarmo.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dellacarmo: dois sobrenomes, uma organização de tecnologia</title>
+  <meta name="description" content="Dellacarmo é uma organização de tecnologia de São Paulo. Felipe Medeiros e Enzo Hessel juntaram os sobrenomes para criar produtos web, aplicativos e IA, aprendendo juntos a cada projeto.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dellacarmo">
+  <meta property="og:description" content="Della + Carmo: dois sobrenomes, uma organização. Produtos web, aplicativos e IA, feitos em São Paulo.">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- HERO: o merge que deu nome à organização.
+       O branch do Felipe (amarelo) e o do Enzo (azul) convergem num nó verde exatamente sobre a junção
+       entre "della" e "carmo". Os traços são desenhados por script a partir das posições reais. -->
+  <header class="hero" id="topo">
+    <div class="hero__panel">
+      <svg class="graph" aria-hidden="true" focusable="false"></svg>
+
+      <div class="hero__intro">
+        <p class="hero__lead" data-rise style="--i:0">Organização de tecnologia de São Paulo. Criamos produtos web, aplicativos e IA, e aprendemos juntos a cada projeto.</p>
+        <div data-rise style="--i:1"><a class="button magnetic" href="mailto:dellacarmo19@gmail.com?subject=Oi%2C%20Dellacarmo">Fale com a gente</a></div>
+      </div>
+
+      <figure class="node node--felipe" data-pop style="--i:0">
+        <div class="node__face"><img src="./src/img/felipe-sq.jpg" width="510" height="510" alt="Felipe Medeiros" fetchpriority="high"></div>
+        <figcaption class="node__tag"><strong>Felipe Medeiros</strong> o Della do nome</figcaption>
+      </figure>
+      <figure class="node node--enzo" data-pop style="--i:1">
+        <div class="node__face"><img src="./src/img/enzo-sq.jpg" width="340" height="340" alt="Enzo Hessel"></div>
+        <figcaption class="node__tag"><strong>Enzo Hessel</strong> o Carmo do nome</figcaption>
+      </figure>
+
+      <h1 class="mark" aria-label="Dellacarmo"><span class="mark__line"><span class="mark__della">della</span><span class="mark__carmo">carmo</span></span></h1>
+    </div>
+
+    <nav class="swatches" aria-label="Seções">
+      <a class="swatch" href="#nome" style="--sw:var(--mint)"><span class="swatch__name">o nome</span><span class="swatch__note">de onde ele veio</span></a>
+      <a class="swatch" href="#areas" style="--sw:var(--cornflower)"><span class="swatch__name">áreas</span><span class="swatch__note">web, apps e IA</span></a>
+      <a class="swatch" href="#equipe" style="--sw:var(--paper)"><span class="swatch__name">equipe</span><span class="swatch__note">quem faz o merge</span></a>
+      <a class="swatch" href="#processo" style="--sw:var(--mint-deep);--sw-ink:var(--paper)"><span class="swatch__name">processo</span><span class="swatch__note">do rascunho à main</span></a>
+      <a class="swatch" href="#contato" style="--sw:var(--cyan)"><span class="swatch__name">contato</span><span class="swatch__note">e-mail e GitHub</span></a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <!-- O NOME: a coisa viva. Campo verde: amarelo de um + azul do outro. -->
+    <section class="chapter chapter--mint fuse" id="nome" aria-labelledby="nome-titulo">
+      <div class="fuse__top">
+        <h2 class="display" id="nome-titulo" data-lines><span class="ln"><span>um nome,</span></span> <span class="ln"><span>dois sobrenomes</span></span></h2>
+        <p class="fuse__note" data-reveal>Dellacarmo junta o Della de Felipe Della Paschoa Medeiros ao Carmo de Enzo Hessel Araujo do Carmo. Amarelo de um, azul do outro: dá verde quando junta. Toque numa palavra de cada nome e faça a sua fusão.</p>
+      </div>
+
+      <div class="fuse__machine" data-reveal>
+        <div class="fuse__rows">
+          <p class="fuse__row fuse__row--a" data-row="0"><span>Felipe</span> <mark>Della</mark> <span>Paschoa</span> <span>Medeiros</span></p>
+          <p class="fuse__row fuse__row--b" data-row="1"><span>Enzo</span> <span>Hessel</span> <span>Araujo</span> <span>do</span> <mark>Carmo</mark></p>
+        </div>
+
+        <form class="fuse__form" hidden>
+          <label class="fuse__label">Primeiro nome completo
+            <input class="fuse__input" name="a" type="text" autocomplete="off" spellcheck="false" maxlength="60" value="Felipe Della Paschoa Medeiros">
+          </label>
+          <label class="fuse__label">Segundo nome completo
+            <input class="fuse__input" name="b" type="text" autocomplete="off" spellcheck="false" maxlength="60" value="Enzo Hessel Araujo do Carmo">
+          </label>
+        </form>
+
+        <div class="fuse__result" aria-live="polite">
+          <p class="fuse__sum">Della + Carmo =</p>
+          <p class="fuse__word"><output><span class="fuse__a">della</span><span class="fuse__b">carmo</span></output></p>
+        </div>
+
+        <div class="fuse__tools" hidden>
+          <button class="textlink" type="button" data-fuse="edit">Testar com outros nomes</button>
+          <button class="textlink" type="button" data-fuse="reset" hidden>Voltar para dellacarmo</button>
+          <a class="textlink" data-fuse="send" href="mailto:dellacarmo19@gmail.com" hidden>Mandar essa fusão pra gente</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPÓSITO: quadro de peças -->
+    <section class="purpose" aria-labelledby="proposito-titulo">
+      <div class="board">
+        <div class="tile tile--slogan" data-shutter>
+          <h2 class="display" id="proposito-titulo">feito a<br> quatro mãos</h2>
+        </div>
+        <div class="tile tile--year" data-shutter style="--i:1">
+          <p class="display tile__figure">2025</p>
+          <p class="tile__caption">o ano em que a organização nasceu no GitHub</p>
+        </div>
+        <figure class="tile tile--video" data-shutter style="--i:2">
+          <video class="tile__media" autoplay muted loop playsinline preload="metadata" poster="./src/media/monotrilho-poster.jpg" width="1280" height="720" aria-hidden="true">
+            <source src="./src/media/monotrilho.webm" type="video/webm">
+            <source src="./src/media/monotrilho.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+      <div class="purpose__text">
+        <p class="purpose__credit">Agulha do monotrilho da Linha 15-Prata, em São Paulo: o trilho se move e dois caminhos viram um. Vídeo de Geogast, CC BY 4.0, via Wikimedia Commons.</p>
+        <p class="purpose__body" data-reveal>A Dellacarmo nasceu da vontade de criar soluções de tecnologia que impressionem e de aprender fazendo, lado a lado. Felipe vinha dos aplicativos e da IA; Enzo, da web e do back-end. Em vez de cada um seguir no seu canto, juntamos os sobrenomes e os repositórios. Cada projeto é uma chance de estudar algo novo e de revisar o código um do outro antes de ir para a main. Este site é o nosso portfólio e o primeiro projeto aberto da organização: os próximos entram aqui conforme ficarem prontos.</p>
+      </div>
+    </section>
+
+    <!-- ÁREAS: três campos de cor, um por frente de trabalho -->
+    <div id="areas">
+      <section class="chapter chapter--cornflower area" aria-labelledby="area-web">
+        <h2 class="display area__phrase" id="area-web" data-lines><span class="ln"><span>da tela</span></span> <span class="ln"><span>ao banco</span></span></h2>
+        <div class="area__text" data-reveal>
+          <p class="area__lead"><strong>Produtos web.</strong> Sites e sistemas completos: interface rápida, API firme e dados bem modelados, publicados na nuvem.</p>
+          <ul class="area__stack" aria-label="Tecnologias de web">
+            <li>React</li><li>Next.js</li><li>Angular</li><li>TypeScript</li><li>Vite</li><li>C# e .NET</li><li>ASP.NET Core</li><li>SQL Server</li><li>PostgreSQL</li><li>AWS</li><li>Microsserviços</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter chapter--lemon area area--mirror" aria-labelledby="area-apps">
+        <h2 class="display area__phrase" id="area-apps" data-lines><span class="ln"><span>um código,</span></span> <span class="ln"><span>dois sistemas</span></span></h2>
+        <div class="area__text" data-reveal>
+          <p class="area__lead"><strong>Aplicativos.</strong> Apps para Android e iOS, nativos quando precisa e multiplataforma quando faz sentido, com acessibilidade desde o primeiro protótipo.</p>
+          <ul class="area__stack" aria-label="Tecnologias de aplicativos">
+            <li>Flutter</li><li>Dart</li><li>Kotlin</li><li>Swift</li><li>React Native</li><li>PWA</li><li>Acessibilidade</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter chapter--orange area" aria-labelledby="area-ia">
+        <h2 class="display area__phrase" id="area-ia" data-lines><span class="ln"><span>ia que cabe</span></span> <span class="ln"><span>na sua máquina</span></span></h2>
+        <div class="area__text" data-reveal>
+          <p class="area__lead"><strong>IA aplicada.</strong> Modelos de linguagem dentro de produtos e automações que tiram o trabalho repetitivo do caminho. Testamos modelos rodando localmente, quantizados para caber em hardware comum.</p>
+          <ul class="area__stack" aria-label="Tecnologias de IA">
+            <li>Python</li><li>Modelos de linguagem</li><li>llama.cpp</li><li>Quantização</li><li>Automação</li><li>Hackathons</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- EQUIPE: os nós do grafo -->
+    <section class="chapter chapter--paper team" id="equipe" aria-labelledby="equipe-titulo">
+      <h2 class="display" id="equipe-titulo" data-lines><span class="ln"><span>quem faz</span></span> <span class="ln"><span>o merge</span></span></h2>
+
+      <div class="team__pair">
+        <article class="person person--felipe" data-reveal>
+          <div class="person__face"><img src="./src/img/felipe-sq.jpg" width="510" height="510" alt="Retrato de Felipe Medeiros" loading="lazy" decoding="async"></div>
+          <h3 class="person__name">Felipe Medeiros</h3>
+          <p class="person__role">O Della do nome. Mobile e IA.</p>
+          <p class="person__bio">Escreve aplicativos Android em Kotlin, apps multiplataforma em Flutter e interfaces web em Angular e TypeScript. Nas horas livres, testa modelos de linguagem rodando localmente e mexe em quantização e cache para que caibam em hardware comum.</p>
+          <ul class="person__links">
+            <li><a class="textlink" href="https://github.com/felipe-dpmedeiros" rel="noopener">GitHub</a></li>
+          </ul>
+        </article>
+
+        <article class="person person--enzo" data-reveal style="--i:1">
+          <div class="person__face"><img src="./src/img/enzo-sq.jpg" width="340" height="340" alt="Retrato de Enzo Hessel" loading="lazy" decoding="async"></div>
+          <h3 class="person__name">Enzo Hessel</h3>
+          <p class="person__role">O Carmo do nome. Full stack.</p>
+          <p class="person__bio">Trabalha com C#, .NET, SQL Server e AWS no back-end e com React, Next.js e TypeScript no front. Formado em Análise e Desenvolvimento de Sistemas pela FIAP, cursa MBA em Engenharia de Software na USP/Esalq.</p>
+          <ul class="person__links">
+            <li><a class="textlink" href="https://www.linkedin.com/in/enzo-hessel" rel="noopener">LinkedIn</a></li>
+            <li><a class="textlink" href="https://github.com/EnzoHessel" rel="noopener">GitHub</a></li>
+            <li><a class="textlink" href="https://enzo-portfolio-mu.vercel.app/" rel="noopener">Portfólio</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="person person--eduardo" data-reveal>
+        <div class="person__face"><img src="./src/img/eduardo-sq.jpg" width="290" height="290" alt="Retrato de Eduardo Hessel" loading="lazy" decoding="async"></div>
+        <div class="person__body">
+          <h3 class="person__name">Eduardo Hessel</h3>
+          <p class="person__bio">Também está na organização. Product designer e engenheiro de software, entusiasta de Web3.</p>
+          <ul class="person__links">
+            <li><a class="textlink" href="https://eduardohessel.com.br/" rel="noopener">Site</a></li>
+            <li><a class="textlink" href="https://www.linkedin.com/in/eduardo-hessel/" rel="noopener">LinkedIn</a></li>
+            <li><a class="textlink" href="https://github.com/eduhessel" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- PROCESSO: sanfona em tons de verde, do escuro ao claro -->
+    <section class="process" id="processo" aria-labelledby="processo-titulo">
+      <div class="process__intro">
+        <h2 class="display" id="processo-titulo" data-lines><span class="ln"><span>do rascunho</span></span> <span class="ln"><span>ao merge</span></span></h2>
+        <p class="process__text" data-reveal>Cada linha de código passa pelos olhos de outra pessoa antes de chegar à main. É assim que a gente aprende rápido e entrega com cuidado.</p>
+      </div>
+
+      <div class="stages">
+        <section class="stage is-open" data-stage style="--tone:#1d3a18;--tone-ink:#f4f4f2;--i:0">
+          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="true" aria-controls="etapa-ideia"><span>ideia</span></button></h3>
+          <div class="stage__body" id="etapa-ideia">
+            <p class="stage__name" aria-hidden="true">ideia</p>
+            <p class="stage__text">Começa numa conversa: que problema vale resolver, e para quem. Anotamos o mínimo que precisa existir para testar a ideia.</p>
+            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M120 104 V320"/><circle cx="120" cy="76" r="28"/></svg>
+          </div>
+        </section>
+        <section class="stage" data-stage style="--tone:#2f5a27;--tone-ink:#f4f4f2;--i:1">
+          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-prototipo"><span>protótipo</span></button></h3>
+          <div class="stage__body" id="etapa-prototipo">
+            <p class="stage__name" aria-hidden="true">protótipo</p>
+            <p class="stage__text">Uma primeira versão rápida, só para ver se a ideia para em pé antes de investir semanas nela.</p>
+            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M120 0 V320"/><circle cx="120" cy="88" r="24"/><circle cx="120" cy="228" r="24"/></svg>
+          </div>
+        </section>
+        <section class="stage" data-stage style="--tone:#4d8a40;--tone-ink:#0a0a0a;--i:2">
+          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-branch"><span>branch</span></button></h3>
+          <div class="stage__body" id="etapa-branch">
+            <p class="stage__name" aria-hidden="true">branch</p>
+            <p class="stage__text">Cada um puxa a sua parte num branch próprio: web de um lado, mobile e IA do outro, sem pisar no pé de ninguém.</p>
+            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M70 0 V320"/><path d="M70 70 C70 140 170 110 170 180 V320"/><circle cx="70" cy="70" r="24"/><circle cx="170" cy="236" r="24"/><circle cx="70" cy="262" r="24"/></svg>
+          </div>
+        </section>
+        <section class="stage" data-stage style="--tone:#76b866;--tone-ink:#0a0a0a;--i:3">
+          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-revisao"><span>revisão</span></button></h3>
+          <div class="stage__body stage__body--photo" id="etapa-revisao">
+            <p class="stage__name" aria-hidden="true">revisão</p>
+            <p class="stage__text">Nenhuma linha entra sem o outro ler. É na revisão que mais aprendemos: perguntas, sugestões, um jeito melhor de escrever a mesma coisa.</p>
+            <div class="stage__photo"><img src="./src/img/codigo.jpg" width="1000" height="250" alt="Código React num editor escuro, fora de foco nas bordas" loading="lazy" decoding="async"></div>
+          </div>
+        </section>
+        <section class="stage" data-stage style="--tone:#9ae187;--tone-ink:#0a0a0a;--i:4">
+          <h3 class="stage__head"><button class="stage__tab" type="button" aria-expanded="false" aria-controls="etapa-merge"><span>merge</span></button></h3>
+          <div class="stage__body" id="etapa-merge">
+            <p class="stage__name" aria-hidden="true">merge</p>
+            <p class="stage__text">As partes se juntam na main, como os dois sobrenomes no nome. O que pode ser aberto vai para o GitHub da organização.</p>
+            <svg class="stage__art" viewBox="0 0 240 320" aria-hidden="true" focusable="false"><path d="M70 0 V320"/><path d="M170 0 V110 C170 180 70 160 70 226"/><circle cx="170" cy="62" r="22"/><circle cx="70" cy="226" r="34"/></svg>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- CONTATO: endereço em linhas grandes, campo ciano -->
+    <section class="chapter chapter--cyan contact" id="contato" aria-labelledby="contato-titulo">
+      <div class="contact__row contact__row--title">
+        <h2 class="contact__text" id="contato-titulo" data-slide>fale com a gente</h2>
+        <div class="contact__photo" data-pop><img src="./src/img/copan-sq.jpg" width="600" height="600" alt="A fachada curva do Edifício Copan, no centro de São Paulo" loading="lazy" decoding="async"></div>
+      </div>
+      <a class="contact__row contact__row--link" href="mailto:dellacarmo19@gmail.com?subject=Oi%2C%20Dellacarmo"><span class="contact__text" data-slide style="--i:1">dellacarmo19<wbr>@gmail.com</span></a>
+      <a class="contact__row contact__row--link" href="https://github.com/Dellacarmo" rel="noopener"><span class="contact__text" data-slide style="--i:2">github.com<wbr>/Dellacarmo</span></a>
+      <p class="contact__row"><span class="contact__text" data-slide style="--i:3">são paulo, brasil</span></p>
+      <p class="contact__row contact__row--hello"><span class="contact__text" data-slide style="--i:4">diga oi</span><a class="contact__go magnetic" href="mailto:dellacarmo19@gmail.com?subject=Oi%2C%20Dellacarmo" aria-label="Escrever para dellacarmo19@gmail.com"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg></a></p>
+    </section>
+  </main>
+
+  <!-- RODAPÉ: o nome construído em blocos: della em amarelo, carmo em azul -->
+  <footer class="foot">
+    <p class="blocks" aria-label="Dellacarmo">
+      <span class="block block--a" style="--h:100%;--i:0">d</span><span class="block block--a" style="--h:74%;--i:1">e</span><span class="block block--a" style="--h:93%;--i:2">l</span><span class="block block--a" style="--h:86%;--i:3">l</span><span class="block block--a" style="--h:68%;--i:4">a</span><span class="block block--b" style="--h:72%;--i:5">c</span><span class="block block--b" style="--h:64%;--i:6">a</span><span class="block block--b" style="--h:80%;--i:7">r</span><span class="block block--b" style="--h:90%;--i:8">m</span><span class="block block--b" style="--h:76%;--i:9">o</span>
+    </p>
+
+    <div class="foot__grid">
+      <ul class="foot__col" aria-label="Seções">
+        <li><a class="textlink" href="#nome">O nome</a></li>
+        <li><a class="textlink" href="#areas">Áreas</a></li>
+        <li><a class="textlink" href="#equipe">Equipe</a></li>
+        <li><a class="textlink" href="#processo">Processo</a></li>
+        <li><a class="textlink" href="#contato">Contato</a></li>
+      </ul>
+      <ul class="foot__col" aria-label="Organização">
+        <li><a class="textlink" href="https://github.com/Dellacarmo" rel="noopener">GitHub da organização</a></li>
+        <li><a class="textlink" href="https://github.com/Dellacarmo/dellacarmo.github.io" rel="noopener">Código deste site</a></li>
+      </ul>
+      <div class="foot__contact">
+        <p><a class="textlink" href="mailto:dellacarmo19@gmail.com">dellacarmo19@gmail.com</a></p>
+        <p>São Paulo, Brasil</p>
+      </div>
+    </div>
+
+    <p class="foot__credits">Imagens: foto do Copan, “<a href="https://commons.wikimedia.org/wiki/File:Edif%C3%ADcio_Copan_-_frente.jpg" rel="noopener">Edifício Copan - frente</a>”, de Pablo Trincado, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>; vídeo “<a href="https://commons.wikimedia.org/wiki/File:Monorail_switch_moving_(S%C3%A3o_Paulo_Metro).webm" rel="noopener">Monorail switch moving (São Paulo Metro)</a>”, de Geogast, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, ambos via Wikimedia Commons.</p>
+
+    <div class="foot__last">
+      <p>© 2026 Dellacarmo</p>
+      <a class="button button--small" href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
