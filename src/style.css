@@ -247,7 +247,9 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
 }
 .fuse__word output { display: inline-block; }
 .fuse__a, .fuse__b { display: inline-block; }
-.chip.is-flying .chip__t { visibility: hidden; }
+.fuse__word .g { display: inline-block; }
+.chip__t { transition: opacity 320ms ease; }
+.chip.is-flying .chip__t { opacity: 0.18; }
 .fuse__tools { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; margin-top: 1.75rem; }
 .fuse__tools .textlink { padding: 0.6rem 0; }
 
@@ -336,9 +338,33 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
 .blame__face + .blame__face { margin-left: -0.95rem; }
 .blame__face img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 
+/* bandeja de logos: peças que caem, empilham e se deixam arremessar */
+.tray { position: relative; order: 1; height: 15rem; margin-bottom: 3.75rem; touch-action: pan-y; overflow-x: clip; pointer-events: none; }
+.tray__body {
+  position: absolute; left: 0; top: 0; width: 80px; height: 80px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--paper); color: var(--field-ink);
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; pointer-events: auto;
+  opacity: 0; transition: opacity 260ms ease, background-color 200ms ease, color 200ms ease;
+  will-change: transform;
+}
+.tray__body.is-in { opacity: 1; }
+.tray__body svg { width: 46%; height: 46%; fill: var(--field-ink); transition: fill 200ms ease, transform 300ms var(--ease-out); }
+.tray__body.is-hot svg { fill: var(--brand, var(--field-ink)); transform: scale(1.14); }
+.tray__body--word { background: var(--field-ink); color: var(--area); font-family: var(--font-display); font-size: var(--step-body); font-weight: 700; letter-spacing: -0.01em; line-height: 1; text-align: center; }
+.tray__body--long { font-size: var(--step-small); line-height: 1.05; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.tray__body--word.is-hot { background: var(--paper); color: var(--field-ink); }
+.tray.is-grabbing, .tray.is-grabbing .tray__body { cursor: grabbing; }
+.tray__tip {
+  position: absolute; left: 0; top: 0; z-index: 2; padding: 0.3rem 0.6rem;
+  background: var(--field-ink); color: var(--paper); font-size: var(--step-small); font-weight: 600; white-space: nowrap;
+  pointer-events: none; opacity: 0; transition: opacity 150ms ease;
+}
+.tray__tip.is-on { opacity: 1; }
+
 @media (min-width: 62.5em) {
+  .tray { grid-column: 1 / 13; grid-row: 1 / 3; align-self: end; height: min(42svh, 23rem); margin-bottom: 0; }
   .area {
-    min-height: 80svh; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
+    min-height: 88svh; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
     grid-template-rows: auto 1fr; padding: var(--margin) var(--margin) calc(var(--margin) * 0.8);
   }
   .area__text { grid-column: 8 / 12; grid-row: 1; padding-top: 3.5rem; max-width: none; }
@@ -564,14 +590,18 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
   .js .person.is-in .person__face { opacity: 1; transform: none; }
 
   /* rodapé: os blocos sobem até a altura de cada letra */
-  /* resultado da fusão: as duas metades se encontram */
-  .fuse__a.is-merging { --from: -0.3em; animation: merge-in 750ms var(--ease-out) both; }
-  .fuse__b.is-merging { --from: 0.3em; animation: merge-in 750ms var(--ease-out) both; }
+  /* resultado da fusão: monta letra por letra, e cada letra que pousa assenta */
+  .fuse__word output.is-assembling .g { animation: assemble 640ms var(--ease-out) both; animation-delay: calc(var(--k, 0) * 40ms); }
+  .fuse__word .g.is-landing { animation: land 300ms var(--ease-out); }
+  .fuse__word .g.is-shared { animation: shared 520ms var(--ease-out); }
 
   .js .block { transform: translateY(101%); transition: transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 55ms); }
   .js .blocks.is-in .block { transform: none; }
 }
 @keyframes merge-in { from { opacity: 0; transform: translateX(var(--from, 0)); } to { opacity: 1; transform: none; } }
 @keyframes rise { to { opacity: 1; transform: none; } }
+@keyframes assemble { from { opacity: 0; transform: translateY(0.45em) rotate(5deg); } to { opacity: 1; transform: none; } }
+@keyframes land { from { transform: translateY(-0.08em) scale(1.08); } to { transform: none; } }
+@keyframes shared { 0% { transform: scale(1.35); } 60% { transform: scale(0.94); } 100% { transform: none; } }
 @keyframes step-in { from { opacity: 0; transform: translateY(1.6rem); } to { opacity: 1; transform: none; } }
 @keyframes code-drift { from { transform: scale(1.12) translateX(3%); } to { transform: scale(1.12) translateX(-3%); } }

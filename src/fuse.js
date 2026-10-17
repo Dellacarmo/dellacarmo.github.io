@@ -55,6 +55,7 @@ export function initFuse() {
       return s;
     }));
   };
+  const numberGlyphs = () => out.querySelectorAll('.g').forEach((g, k) => g.style.setProperty('--k', k));
 
   const lettersOf = (chip) => {
     const node = chip?.querySelector('.chip__t')?.firstChild;
@@ -69,6 +70,15 @@ export function initFuse() {
     return rects;
   };
 
+  const settle = (el, cls) => {
+    el.classList.remove('is-landing', 'is-shared');
+    void el.offsetWidth;
+    el.classList.add(cls);
+    el.addEventListener('animationend', () => el.classList.remove(cls), { once: true });
+  };
+
+  // as letras saem das palavras escolhidas (deixando um rastro claro), fazem um arco
+  // e pousam no resultado; onde duas letras caem no mesmo lugar, a letra dá um pulso
   const fly = (chipA, chipB, left, overlap) => {
     if (reduceMotion.matches || !chipA || !chipB) return;
     const targets = [...out.querySelectorAll('.g')];
@@ -80,6 +90,7 @@ export function initFuse() {
     layer.setAttribute('aria-hidden', 'true');
     document.body.append(layer);
     const lands = new Array(targets.length).fill(0);
+    const hits = new Array(targets.length).fill(0);
     let last = 0;
 
     const launch = (chip, toIndex, first) => {
@@ -99,15 +110,16 @@ export function initFuse() {
         const scale = destSize / size;
         const dx = d.left - rect.left;
         const dy = d.top - rect.top;
-        const lift = -Math.min(150, 50 + Math.abs(dx) * 0.14);
-        const delay = (first + i) * 26;
-        const duration = 780 + (i % 3) * 80;
+        const lift = -Math.min(110, 36 + Math.abs(dx) * 0.08);
+        const delay = (first + i) * 32;
+        const duration = 760;
         ghost.animate([
-          { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
-          { transform: `translate(${dx * 0.5}px, ${dy * 0.5 + lift}px) scale(${(1 + scale) / 2}) rotate(${i % 2 ? 9 : -9}deg)`, offset: 0.55 },
-          { transform: `translate(${dx}px, ${dy}px) scale(${scale}) rotate(0deg)` },
-        ], { duration, delay, easing: 'cubic-bezier(0.33, 1, 0.68, 1)', fill: 'forwards' });
+          { transform: 'translate(0px, 0px) scale(1)', opacity: 0.4 },
+          { transform: `translate(${dx * 0.42}px, ${dy * 0.3 + lift}px) scale(${1 + (scale - 1) * 0.4})`, opacity: 1, offset: 0.45 },
+          { transform: `translate(${dx}px, ${dy}px) scale(${scale})`, opacity: 1 },
+        ], { duration, delay, easing: 'cubic-bezier(0.45, 0, 0.15, 1)', fill: 'forwards' });
         lands[j] = Math.max(lands[j], delay + duration);
+        hits[j] += 1;
         last = Math.max(last, delay + duration);
       });
     };
@@ -117,12 +129,15 @@ export function initFuse() {
     chipB.classList.add('is-flying');
     launch(chipA, (i) => i, 0);
     launch(chipB, (i) => (i < overlap ? left.length - overlap + i : left.length + i - overlap), 3);
-    targets.forEach((t, j) => setTimeout(() => { t.style.opacity = ''; }, lands[j]));
+    targets.forEach((t, j) => setTimeout(() => {
+      t.style.opacity = '';
+      settle(t, hits[j] > 1 ? 'is-shared' : 'is-landing');
+    }, lands[j]));
     setTimeout(() => {
-      layer.remove();
       chipA.classList.remove('is-flying');
       chipB.classList.remove('is-flying');
-    }, last + 80);
+    }, last - 200);
+    setTimeout(() => layer.remove(), last + 60);
   };
 
   /* ---------- linhas de nomes ---------- */
@@ -165,13 +180,14 @@ export function initFuse() {
     });
   };
 
-  const merge = () => {
+  // o resultado se monta letra por letra, de baixo para cima
+  const assemble = () => {
     if (reduceMotion.matches) return;
-    for (const part of [partA, partB]) {
-      part.classList.remove('is-merging');
-      void part.offsetWidth;
-      part.classList.add('is-merging');
-    }
+    out.classList.remove('is-assembling');
+    void out.offsetWidth;
+    out.classList.add('is-assembling');
+    const n = out.querySelectorAll('.g').length;
+    setTimeout(() => out.classList.remove('is-assembling'), 700 + n * 40);
   };
 
   const pressed = (r) => rows[r].querySelector('.chip[aria-pressed="true"]');
@@ -191,6 +207,8 @@ export function initFuse() {
     sum.textContent = `${cap(a)} + ${cap(b)} =`;
     glyphs(partA, left);
     glyphs(partB, right);
+    numberGlyphs();
+    if (animate && !reduceMotion.matches) sum.animate([{ opacity: 0, transform: 'translateY(0.4em)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
     out.setAttribute('aria-label', word);
     if (animate) fly(pressed(0), pressed(1), left, overlap);
     const isDefault = state.names[0] === DEFAULTS[0] && state.names[1] === DEFAULTS[1] && state.pick[0] === 1 && state.pick[1] === 4;
@@ -257,7 +275,7 @@ export function initFuse() {
     const io = new IntersectionObserver((entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       io.disconnect();
-      setTimeout(merge, 250);
+      setTimeout(assemble, 200);
     }, { threshold: 0.55 });
     io.observe(root);
   }

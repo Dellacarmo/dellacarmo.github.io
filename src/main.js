@@ -2,6 +2,7 @@ import { initReveal } from './reveal.js';
 import { initHero } from './hero.js';
 import { initFuse } from './fuse.js';
 import { initAreas } from './areas.js';
+import { initTrays } from './tray.js';
 import { initProcess } from './process.js';
 import { initBlocks } from './blocks.js';
 import { initMagnetic } from './magnetic.js';
@@ -9,6 +10,7 @@ import { initMagnetic } from './magnetic.js';
 const hero = initHero();
 const blocks = initBlocks();
 const story = initProcess();
+const trays = initTrays();
 initFuse();
 initAreas();
 initMagnetic();
@@ -18,6 +20,7 @@ const layout = () => {
   hero.layout();
   blocks.fit();
   story.layout();
+  trays.layout();
 };
 
 const ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
