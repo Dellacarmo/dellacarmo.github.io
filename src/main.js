@@ -341,23 +341,3 @@ window.addEventListener('resize', () => {
     btn.addEventListener('pointerup', () => { btn.style.transform = btn.style.transform.replace(' scale(0.96)', ''); });
   });
 })();
-
-/* ---------- vídeo: pausa fora da tela e sob movimento reduzido ---------- */
-(() => {
-  for (const v of document.querySelectorAll('video[autoplay]')) {
-    const sync = () => {
-      if (reduceMotion.matches) { v.removeAttribute('autoplay'); v.pause(); return; }
-      v.play().catch(() => {});
-    };
-    sync();
-    reduceMotion.addEventListener('change', sync);
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver((entries) => {
-        for (const e of entries) {
-          if (reduceMotion.matches) continue;
-          if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
-        }
-      }).observe(v);
-    }
-  }
-})();

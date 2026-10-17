@@ -29,11 +29,9 @@ O resultado vai para `dist/`, com caminhos relativos (`base: './'`), então func
 - `index.html`: todo o conteúdo (textos, links, equipe).
 - `src/style.css`: cores, tipografia e layout. A lógica de cor: amarelo = Felipe (della), azul = Enzo (carmo), verde = o que é dos dois.
 - `src/main.js`: o grafo do merge no topo, a fusão de nomes, a sanfona do processo e as entradas.
-- `src/img/` e `src/media/`: fotos e o vídeo.
+- `src/img/`: as fotos.
 
-## Créditos das imagens de terceiros
+## Crédito da imagem de terceiros
 
 - Foto do Copan: “Edifício Copan - frente”, de Pablo Trincado, CC BY 2.0, via Wikimedia Commons.
   https://commons.wikimedia.org/wiki/File:Edif%C3%ADcio_Copan_-_frente.jpg
-- Vídeo: “Monorail switch moving (São Paulo Metro)”, de Geogast, CC BY 4.0, via Wikimedia Commons.
-  https://commons.wikimedia.org/wiki/File:Monorail_switch_moving_(S%C3%A3o_Paulo_Metro).webm
