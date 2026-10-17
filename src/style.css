@@ -390,8 +390,6 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
 @media (hover: hover) and (pointer: fine) {
   .contact__row--link:hover .contact__text { transform: translateX(0.15em); }
 }
-.contact__photo { width: clamp(5rem, 11vw, 10rem); aspect-ratio: 1; border-radius: 50%; overflow: hidden; flex: none; align-self: center; }
-.contact__photo img { width: 100%; height: 100%; object-fit: cover; }
 .contact__row--hello { background: var(--field-ink) !important; color: var(--cyan); align-items: center; }
 .contact__go {
   display: inline-flex; align-items: center; justify-content: center; flex: none;
@@ -406,8 +404,6 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
 @media (min-width: 62.5em) {
   .contact__row { min-height: 9.25rem; padding: 0 var(--margin) 1.5rem; overflow-wrap: normal; }
   .contact__row wbr { display: none; }
-  .contact__row--title { align-items: center; padding-block: 1.25rem; }
-  .contact__row--title .contact__text { align-self: flex-end; padding-bottom: 0.25rem; }
   .contact__row--hello { background: var(--cyan-2) !important; color: var(--field-ink); justify-content: flex-start; align-items: flex-end; }
   .contact__go { width: 0.95em; height: 0.95em; background: var(--field-ink); color: var(--cyan); margin-bottom: 0.04em; }
   .contact__go svg { width: 0.45em; height: 0.45em; }
@@ -432,9 +428,7 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
 .foot__col { display: grid; gap: 0.35rem; align-content: start; }
 .foot__col .textlink, .foot__contact .textlink { font-weight: 400; display: inline-block; padding: 0.15rem 0; }
 .foot__contact { display: grid; gap: 0.35rem; align-content: start; }
-.foot__credits { margin-top: 3rem; font-size: var(--step-small); color: #c9c9c4; max-width: 90ch; }
-.foot__credits a { color: var(--ink); text-underline-offset: 0.2em; }
-.foot__last { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 2rem; font-size: var(--step-small); color: #c9c9c4; }
+.foot__last { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 3.5rem; font-size: var(--step-small); color: #c9c9c4; }
 
 @media (min-width: 48em) {
   .foot__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }

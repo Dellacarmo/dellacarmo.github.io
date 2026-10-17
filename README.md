@@ -29,9 +29,4 @@ O resultado vai para `dist/`, com caminhos relativos (`base: './'`), então func
 - `index.html`: todo o conteúdo (textos, links, equipe).
 - `src/style.css`: cores, tipografia e layout. A lógica de cor: amarelo = Felipe (della), azul = Enzo (carmo), verde = o que é dos dois.
 - `src/main.js`: o grafo do merge no topo, a fusão de nomes, a sanfona do processo e as entradas.
-- `src/img/`: as fotos.
-
-## Crédito da imagem de terceiros
-
-- Foto do Copan: “Edifício Copan - frente”, de Pablo Trincado, CC BY 2.0, via Wikimedia Commons.
-  https://commons.wikimedia.org/wiki/File:Edif%C3%ADcio_Copan_-_frente.jpg
+- `src/img/`: as fotos da equipe e a foto de código. Todas são da própria Dellacarmo.
