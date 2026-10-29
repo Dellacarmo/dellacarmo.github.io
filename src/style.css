@@ -135,7 +135,9 @@ h1, h2, h3 { text-wrap: balance; font-weight: 700; }
   display: grid; justify-items: start; gap: 1.1rem;
 }
 .hero__lead { font-size: var(--step-body); line-height: 1.4; max-width: 34ch; }
-.hero__hint { font-size: var(--step-small); color: var(--muted); max-width: 32ch; transition: opacity 600ms ease; }
+/* a dica fica ao lado do botão: quando não cabe, cai para baixo e o hero.js abre espaço para as legendas dos rostos */
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.25rem; }
+.hero__hint { flex: 1 1 14rem; font-size: var(--step-small); color: var(--muted); max-width: 30ch; transition: opacity 600ms ease; }
 .hero__hint.is-done { opacity: 0; }
 
 .node { position: absolute; z-index: 2; width: var(--node); top: calc(var(--lane-y) - var(--node) / 2); }

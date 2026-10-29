@@ -52,6 +52,28 @@ export function initHero() {
     return ctx.measureText('x').actualBoundingBoxAscent || size * 0.5;
   };
 
+  // O texto do topo e as legendas dos rostos (acima dos nós, a meia altura) disputam o mesmo espaço em janelas
+  // baixas. Se a legenda encostar no texto, o painel cresce só o bastante para ela ficar abaixo dele.
+  const intro = panel.querySelector('.hero__intro');
+  const clearIntro = () => {
+    panel.style.minHeight = '';
+    if (!intro) return;
+    const bottom = offsetIn(intro, panel).y + intro.offsetHeight;
+    const left = intro.offsetLeft;
+    const right = left + intro.offsetWidth;
+    let short = 0;
+    for (const n of nodes) {
+      const tag = n.body.querySelector('.node__tag');
+      const o = offsetIn(tag, panel);
+      if (o.x + tag.offsetWidth <= left || o.x >= right) continue;
+      short = Math.max(short, bottom + 16 - o.y);
+    }
+    if (short <= 0 || !panel.clientHeight) return;
+    // os nós ficam numa fração fixa da altura, então cada pixel que o painel ganha empurra a legenda só por essa fração
+    const lane = (offsetIn(A.face, panel).y + A.face.offsetHeight / 2) / panel.clientHeight;
+    panel.style.minHeight = `${Math.ceil(panel.clientHeight + short / lane)}px`;
+  };
+
   const measure = () => {
     g.W = panel.clientWidth;
     g.H = panel.clientHeight;
@@ -275,6 +297,7 @@ export function initHero() {
   const layout = () => {
     fitMark();
     measure();
+    clearIntro();
     build();
     if (state.live) svg.classList.add('is-drawn', 'is-live');
     render();
