@@ -13,9 +13,10 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Figtree:wght@400;600&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./src/projetos/wi-diag/wi-diag.css">
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -54,6 +55,7 @@
     <nav class="swatches" aria-label="Seções">
       <a class="swatch" href="#nome" style="--sw:var(--mint)"><span class="swatch__name">o nome</span><span class="swatch__note">de onde ele veio</span></a>
       <a class="swatch" href="#areas" style="--sw:var(--cornflower)"><span class="swatch__name">áreas</span><span class="swatch__note">web, apps e IA</span></a>
+      <a class="swatch" href="#projetos" style="--sw:var(--lemon)"><span class="swatch__name">projetos</span><span class="swatch__note">o que já está na main</span></a>
       <a class="swatch" href="#equipe" style="--sw:var(--paper)"><span class="swatch__name">equipe</span><span class="swatch__note">quem faz o merge</span></a>
       <a class="swatch" href="#processo" style="--sw:var(--mint-deep);--sw-ink:var(--paper)"><span class="swatch__name">processo</span><span class="swatch__note">do rascunho à main</span></a>
       <a class="swatch" href="#contato" style="--sw:var(--cyan)"><span class="swatch__name">contato</span><span class="swatch__note">e-mail e GitHub</span></a>
@@ -164,6 +166,45 @@
       </section>
     </div>
 
+    <!-- PROJETOS: o que já chegou à main. "Mais detalhes" abre a página do projeto, com a cara dele -->
+    <section class="projects" id="projetos" aria-labelledby="projetos-titulo">
+      <div class="projects__top">
+        <h2 class="display" id="projetos-titulo" data-lines><span class="ln"><span>já está</span></span> <span class="ln"><span>na main</span></span></h2>
+        <p class="projects__note" data-reveal>Os projetos que já saíram do branch. Cada um tem a sua página, com o trailer, o código e como ele funciona por dentro.</p>
+      </div>
+
+      <ol class="projects__list">
+        <li class="project" data-reveal>
+          <a class="project__link" href="#projetos/wi-diag" aria-labelledby="wi-card-nome wi-card-mais">
+            <figure class="project__media" data-case-media>
+              <img src="./src/projetos/wi-diag/espaco-960.jpg" srcset="./src/projetos/wi-diag/espaco-960.jpg 960w, ./src/projetos/wi-diag/espaco.jpg 1600w" sizes="(min-width: 62.5em) 62vw, 100vw" width="1600" height="840" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="project__body">
+              <p class="project__meta"><span class="project__index">01</span><span>projeto aberto · 2026</span></p>
+              <h3 class="project__name" id="wi-card-nome">WI//DIAG</h3>
+              <p class="project__tagline">Veja o invisível.</p>
+              <p class="project__desc">O Wi-Fi ao seu redor em radar no terminal e em 3D no navegador: canal, interferência, segurança e distância estimada de cada rede. E ainda diz qual canal usar.</p>
+              <ul class="project__tags" aria-label="Feito com">
+                <li>Bun</li><li>TypeScript</li><li>Three.js</li><li>Swift</li><li>Electron</li>
+              </ul>
+              <span class="project__more" id="wi-card-mais">Mais detalhes<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg></span>
+            </div>
+          </a>
+        </li>
+        <li class="project project--next" data-reveal style="--i:1">
+          <svg class="project__branch" viewBox="0 0 240 64" aria-hidden="true" focusable="false">
+            <path d="M8 46H232" stroke="var(--paper)"/>
+            <path d="M112 46C146 46 148 18 182 18H206" stroke="var(--mint)" pathLength="1"/>
+            <circle cx="44" cy="46" r="9" fill="var(--paper)"/>
+            <circle cx="112" cy="46" r="9" fill="var(--paper)"/>
+            <circle cx="214" cy="18" r="9" fill="var(--mint-deep)" stroke="var(--mint)" stroke-width="5"/>
+          </svg>
+          <p class="project__index">02</p>
+          <p class="project__soon"><strong>o próximo está num branch</strong> Em revisão. Entra aqui quando chegar à main.</p>
+        </li>
+      </ol>
+    </section>
+
     <!-- EQUIPE: os nós do grafo -->
     <section class="chapter chapter--paper team" id="equipe" aria-labelledby="equipe-titulo">
       <h2 class="display" id="equipe-titulo" data-lines><span class="ln"><span>quem faz</span></span> <span class="ln"><span>o merge</span></span></h2>
@@ -272,6 +313,293 @@
       <p class="contact__row"><span class="contact__text" data-slide style="--i:3">são paulo, brasil</span></p>
       <p class="contact__row contact__row--hello"><span class="contact__text" data-slide style="--i:4">diga oi</span><a class="contact__go magnetic" href="mailto:dellacarmo19@gmail.com?subject=Oi%2C%20Dellacarmo" aria-label="Escrever para dellacarmo19@gmail.com"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg></a></p>
     </section>
+
+    <!-- PÁGINA DO PROJETO: WI//DIAG. Abre pelo "Mais detalhes" sem recarregar (ver router.js) e troca a cara
+         da Dellacarmo pela do projeto: tela de fósforo, JetBrains Mono e o espaço RF. Estilo e mídia em src/projetos/wi-diag/. -->
+    <article class="case case--wi" id="projetos/wi-diag" data-title="WI//DIAG: veja o invisível · Dellacarmo" aria-labelledby="wi-titulo">
+      <nav class="wi-bar" aria-label="WI//DIAG">
+        <a class="wi-bar__back" href="#projetos" data-back><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 12H6M12 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg><span>projetos</span></a>
+        <p class="wi-bar__brand" aria-hidden="true"><svg class="wi-mark" viewBox="0 0 560 280"><path d="M0 280 280 0v280z"/><path class="wi-mark__b" d="M280 0h280L280 280z"/></svg>WI<b>//</b>DIAG<span>v2.0</span></p>
+        <a class="wi-bar__gh" href="https://github.com/Dellacarmo/Wi-diagnostics" rel="noopener">GitHub</a>
+      </nav>
+
+      <header class="wi-hero">
+        <div class="wi-hero__media" data-case-media aria-hidden="true">
+          <img class="wi-hero__still" src="./src/projetos/wi-diag/espaco.jpg" width="1600" height="840" alt="" loading="lazy" decoding="async">
+          <video class="wi-hero__loop" muted loop playsinline preload="none" disableremoteplayback><source src="./src/projetos/wi-diag/espaco.mp4" type="video/mp4"></video>
+          <span class="wi-hero__ping"></span>
+        </div>
+        <div class="wi-hero__intro">
+          <p class="wi-chip"><span class="wi-chip__dot"></span>projeto aberto · Apache-2.0</p>
+          <h1 class="wi-hero__name" id="wi-titulo" tabindex="-1" aria-label="WI//DIAG"><svg class="wi-mark" viewBox="0 0 560 280" aria-hidden="true"><path d="M0 280 280 0v280z"/><path class="wi-mark__b" d="M280 0h280L280 280z"/></svg><span class="wi-hero__word" data-decode>WI<b>//</b>DIAG</span></h1>
+          <p class="wi-hero__tagline"><span data-decode>Veja o invisível.</span><span class="wi-cursor" aria-hidden="true"></span></p>
+          <p class="wi-hero__lead">O Wi-Fi ao seu redor em radar no terminal e em 3D no navegador. Canal, interferência, segurança e distância estimada de cada rede, ao vivo.</p>
+          <div class="wi-hero__actions">
+            <a class="wi-btn wi-btn--solid" href="https://github.com/Dellacarmo/Wi-diagnostics" rel="noopener">Ver o código no GitHub</a>
+            <a class="wi-btn" href="#wi-trailer"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Assistir ao trailer</a>
+          </div>
+        </div>
+        <dl class="wi-hero__facts">
+          <div><dt>versão</dt><dd>2.0</dd></div>
+          <div><dt>sistemas</dt><dd>macOS · Linux · Windows</dd></div>
+          <div><dt>engine</dt><dd>Bun + TypeScript</dd></div>
+          <div><dt>3D</dt><dd>Three.js</dd></div>
+        </dl>
+      </header>
+
+      <!-- o gancho do trailer: o ar está lotado, e ninguém vê -->
+      <section class="wi-air" aria-labelledby="wi-ar-titulo">
+        <p class="wi-air__count" aria-hidden="true"><span class="wi-air__num" data-count="17">17</span><span class="wi-air__unit">redes<br> no ar</span></p>
+        <div class="wi-air__text">
+          <h2 class="wi-air__title" id="wi-ar-titulo" data-reveal>Agora mesmo, dezessete redes Wi-Fi disputam o ar ao seu redor.</h2>
+          <p class="wi-air__more" data-reveal style="--i:1">Você não vê nenhuma delas. Mas sente: a chamada trava, o vídeo para. O WI//DIAG torna esse ar visível e diz como consertar o seu Wi-Fi.</p>
+        </div>
+      </section>
+
+      <section class="wi-section wi-trailer" id="wi-trailer" aria-labelledby="wi-trailer-titulo">
+        <div class="wi-head" data-reveal>
+          <p class="wi-kicker">trailer · 2:00</p>
+          <h2 class="wi-h2" id="wi-trailer-titulo">o ar, visível em dois minutos</h2>
+          <p class="wi-head__text">Narrado em português. Todas as telas são o app de verdade, gravado quadro a quadro: o engine é o real, a vizinhança é sintética.</p>
+        </div>
+        <!-- o vídeo do YouTube: cole o link ou o código do vídeo em data-youtube (ex.: data-youtube="https://youtu.be/XXXXXXXXXXX") -->
+        <div class="player wi-player" data-youtube="" data-label="Trailer do WI//DIAG" data-reveal>
+          <img class="player__poster" src="./src/projetos/wi-diag/trailer.jpg" width="1600" height="900" alt="Abertura do trailer: o número 17 cercado pelos nomes das redes Wi-Fi da vizinhança, sobre a chuva digital verde" loading="lazy" decoding="async">
+          <button class="player__play" type="button" disabled>
+            <span class="player__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg></span>
+            <span class="player__label">Assistir ao trailer</span>
+          </button>
+          <p class="player__soon">em breve no YouTube</p>
+        </div>
+      </section>
+
+      <section class="wi-section wi-views" aria-labelledby="wi-telas-titulo">
+        <div class="wi-head" data-reveal>
+          <p class="wi-kicker">um engine · duas telas</p>
+          <h2 class="wi-h2" id="wi-telas-titulo">no terminal e no navegador</h2>
+          <p class="wi-head__text">O mesmo engine em Bun alimenta as duas: varre o ar a cada 2 s, filtra o sinal de cada rádio e publica um retrato por segundo.</p>
+        </div>
+        <div class="wi-views__stage">
+          <figure class="wi-window wi-window--web" data-reveal>
+            <div class="wi-window__bar"><span class="wi-window__dots" aria-hidden="true"></span><span class="wi-window__url">127.0.0.1:3333 · WI//DIAG</span></div>
+            <img class="wi-window__shot" src="./src/projetos/wi-diag/interface-1280.jpg" srcset="./src/projetos/wi-diag/interface-1280.jpg 1280w, ./src/projetos/wi-diag/interface.jpg 1920w" sizes="(min-width: 62.5em) 66vw, 100vw" width="1920" height="1080" alt="A visualização 3D no navegador: a lista de redes à esquerda, os nós luminosos no espaço, o espectro embaixo e o inspetor aberto numa impressora a cerca de 7,8 m" loading="lazy" decoding="async">
+            <figcaption class="wi-window__cap"><code>npm run web</code> O espaço RF ao redor do computador, em Three.js. Cada rede é um nó na distância estimada pelo sinal; clique num deles para abrir o inspetor.</figcaption>
+          </figure>
+          <figure class="wi-window wi-window--term" data-reveal style="--i:1">
+            <div class="wi-window__bar"><span class="wi-window__dots" aria-hidden="true"></span><span class="wi-window__url">~/Wi-diagnostics · wi</span></div>
+            <div class="wi-window__screen">
+              <img class="wi-window__shot" src="./src/projetos/wi-diag/terminal.jpg" width="1200" height="690" alt="O painel do terminal: radar de varredura, link do roteador, lista de redes, espectro de 2.4 GHz e eventos" loading="lazy" decoding="async">
+              <video class="wi-window__video" muted loop playsinline preload="none" width="1200" height="690" aria-hidden="true"><source src="./src/projetos/wi-diag/terminal.mp4" type="video/mp4"></video>
+              <button class="wi-window__toggle" type="button" hidden aria-label="Pausar a animação do terminal"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="i-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/><path class="i-play" d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg></button>
+            </div>
+            <figcaption class="wi-window__cap"><code>npm run cli</code> Radar de varredura, link, redes, espectro e eventos em tela cheia, direto no terminal.</figcaption>
+          </figure>
+          <dl class="wi-keys" data-reveal style="--i:2">
+            <div><dt><kbd>↑</kbd><kbd>↓</kbd></dt><dd>escolhe a rede</dd></div>
+            <div><dt><kbd>⏎</kbd></dt><dd>abre os detalhes</dd></div>
+            <div><dt><kbd>f</kbd></dt><dd>filtra por banda</dd></div>
+            <div><dt><kbd>e</kbd></dt><dd>troca o modelo de ambiente</dd></div>
+            <div><dt><kbd>w</kbd></dt><dd>abre a visualização 3D</dd></div>
+            <div><dt><kbd>m</kbd></dt><dd>liga a chuva digital</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- o diagnóstico na prática: o mesmo salto do trailer, do canal 6 congestionado para o 11 -->
+      <section class="wi-section wi-fix" aria-labelledby="wi-fix-titulo">
+        <div class="wi-head" data-reveal>
+          <p class="wi-kicker">diagnóstico</p>
+          <h2 class="wi-h2" id="wi-fix-titulo">do canal 6 ao 11</h2>
+          <p class="wi-head__text">O veredito vem em português claro. Aqui, o seu roteador divide o canal 6 com três vizinhos, e o 11 está quase vazio. Faça a troca e veja o link mudar.</p>
+        </div>
+        <div class="wi-fix__panel" data-reveal>
+          <div class="wi-fix__link">
+            <p class="wi-fix__ssid"><b>◆ Casa_Silva</b> <span>2.4 GHz · canal <span class="wi-fix__ch">6</span> · 20 MHz · Wi-Fi 6</span></p>
+            <dl class="wi-fix__stats">
+              <div><dt>interferência</dt><dd><span data-from="83" data-to="0">83</span><small>/100</small></dd></div>
+              <div><dt>taxa</dt><dd><span data-from="69" data-to="229">69</span><small>Mbps</small></dd></div>
+              <div><dt>gateway</dt><dd><span data-from="38" data-to="4">38</span><small>ms</small></dd></div>
+              <div><dt>internet</dt><dd><span data-from="51" data-to="19">51</span><small>ms</small></dd></div>
+            </dl>
+            <p class="wi-fix__quality"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" pathLength="100"/><circle class="wi-fix__arc" cx="22" cy="22" r="18" pathLength="100"/></svg><span data-from="71" data-to="84">71</span><small>qualidade</small></p>
+          </div>
+          <div class="wi-fix__chart">
+            <svg class="wi-spec" viewBox="0 0 640 262" role="img" aria-labelledby="wi-spec-desc">
+              <desc id="wi-spec-desc">Espectro de 2,4 GHz. O seu roteador, Casa_Silva, divide o canal 6 com mais três redes; o canal 11 tem só uma rede fraca.</desc>
+              <defs><clipPath id="wi-spec-clip"><rect x="48" y="8" width="576" height="212"/></clipPath></defs>
+              <g class="wi-spec__grid">
+                <path d="M48 16H624"/><text x="40" y="20">-30</text>
+                <path d="M48 78.8H624"/><text x="40" y="82.8">-50</text>
+                <path d="M48 141.5H624"/><text x="40" y="145.5">-70</text>
+                <path d="M48 204.3H624"/><text x="40" y="208.3">-90</text>
+              </g>
+              <g class="wi-spec__best"><rect x="393.6" y="12" width="140.8" height="208"/><text x="464" y="30">melhor canal 11</text></g>
+              <g class="wi-spec__nets" clip-path="url(#wi-spec-clip)">
+                <path d="M233.6 220C278.7 220 278.7 100.7 304 100.7C329.3 100.7 329.3 220 374.4 220"><title>HP-Print-3F-LaserJet · canal 6 · -57 dBm</title></path>
+                <path d="M233.6 220C278.7 220 278.7 119.6 304 119.6C329.3 119.6 329.3 220 374.4 220"><title>CLARO_WIFI · canal 6 · -63 dBm</title></path>
+                <path d="M233.6 220C278.7 220 278.7 132.1 304 132.1C329.3 132.1 329.3 220 374.4 220"><title>VIVOFIBRA-8A2C · canal 6 · -67 dBm</title></path>
+                <path d="M329.6 220C374.7 220 374.7 135.3 400 135.3C425.3 135.3 425.3 220 470.4 220"><title>Galaxy A54 · canal 9 · -68 dBm</title></path>
+                <path d="M137.6 220C182.7 220 182.7 160.4 208 160.4C233.3 160.4 233.3 220 278.4 220"><title>Ap_302 · canal 3 · -76 dBm</title></path>
+                <path d="M80 220C161.9 220 161.9 169.8 208 169.8C254.1 169.8 254.1 220 336 220"><title>NET_2G4F1D90 · canal 1 · -79 dBm</title></path>
+                <path d="M73.6 220C118.7 220 118.7 194.9 144 194.9C169.3 194.9 169.3 220 214.4 220"><title>Cafe_Wifi_Gratis · canal 1 · -87 dBm</title></path>
+                <path d="M393.6 220C438.7 220 438.7 194.9 464 194.9C489.3 194.9 489.3 220 534.4 220"><title>Familia Rocha 2.4 · canal 11 · -87 dBm</title></path>
+              </g>
+              <g class="wi-spec__crowd"><rect x="227.6" y="78.8" width="152.8" height="145.2" rx="4"/><text x="304" y="68">4 redes no canal 6</text></g>
+              <g class="wi-spec__own"><path d="M233.6 220C278.7 220 278.7 103.9 304 103.9C329.3 103.9 329.3 220 374.4 220"/><text x="304" y="95">◆ Casa_Silva</text></g>
+              <g class="wi-spec__hop"><path d="M304 73.9Q384 19.9 464 73.9" pathLength="1"/><text x="384" y="38">canal 6 → 11</text></g>
+              <g class="wi-spec__axis">
+                <text x="144" y="252">1</text><text x="176" y="252">2</text><text x="208" y="252">3</text><text x="240" y="252">4</text><text x="272" y="252">5</text><text x="304" y="252" class="is-key">6</text><text x="336" y="252">7</text><text x="368" y="252">8</text><text x="400" y="252">9</text><text x="432" y="252">10</text><text x="464" y="252" class="is-key">11</text><text x="496" y="252">12</text><text x="528" y="252">13</text>
+              </g>
+            </svg>
+          </div>
+          <div class="wi-fix__foot">
+            <p class="wi-fix__verdict" aria-live="polite"><span>▸ Canal 6 congestionado · considere o canal 11</span></p>
+            <button class="wi-btn wi-btn--solid wi-fix__go" type="button" hidden>Mudar o roteador para o canal 11</button>
+          </div>
+        </div>
+        <p class="wi-note">Números do cenário gravado para o trailer: o engine é o de verdade, o ar é sintético.</p>
+      </section>
+
+      <section class="wi-section wi-features" aria-labelledby="wi-mostra-titulo">
+        <div class="wi-head" data-reveal>
+          <p class="wi-kicker">no navegador</p>
+          <h2 class="wi-h2" id="wi-mostra-titulo">o que ele mostra</h2>
+        </div>
+        <ul class="wi-features__list">
+          <li class="wi-feature" data-reveal>
+            <img class="wi-feature__shot" src="./src/projetos/wi-diag/campo.jpg" width="1280" height="720" alt="Câmera de radar vista de cima, com as curvas de nível do campo de sinal ao redor de cada rede" loading="lazy" decoding="async">
+            <h3 class="wi-feature__name">Campo RF <kbd>F</kbd></h3>
+            <p>A cobertura prevista de cada rede desenhada no piso, com curvas de −50 a −80 dBm.</p>
+          </li>
+          <li class="wi-feature" data-reveal style="--i:1">
+            <img class="wi-feature__shot" src="./src/projetos/wi-diag/inspetor.jpg" width="1280" height="720" alt="Inspetor de uma rede aberta, com nota F de segurança e distância estimada de 13 m" loading="lazy" decoding="async">
+            <h3 class="wi-feature__name">Inspetor <span class="wi-feature__how">clique num nó</span></h3>
+            <p>Distância provável com faixa de incerteza, nota de segurança de A a F, fabricante, canal e histórico do sinal.</p>
+          </li>
+          <li class="wi-feature" data-reveal style="--i:2">
+            <img class="wi-feature__shot" src="./src/projetos/wi-diag/cinema.jpg" width="1280" height="720" alt="Modo cinema: só o espaço RF, sem painéis" loading="lazy" decoding="async">
+            <h3 class="wi-feature__name">Modo cinema <kbd>H</kbd></h3>
+            <p>Só o espaço RF, sem painéis, para deixar aberto numa tela.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="wi-section wi-inside" aria-labelledby="wi-dentro-titulo">
+        <div class="wi-inside__text">
+          <div class="wi-head" data-reveal>
+            <p class="wi-kicker">por dentro</p>
+            <h2 class="wi-h2" id="wi-dentro-titulo">um engine, quatro fontes</h2>
+            <p class="wi-head__text">A cada 2 s o engine varre o ar, filtra o RSSI de cada rádio com um filtro de Kalman e mantém a identidade das redes entre as varreduras, mesmo quando o sistema esconde o BSSID. Depois estima posições, mede o espectro e a latência e publica o retrato para as duas telas.</p>
+          </div>
+          <div class="wi-inside__note" data-reveal>
+            <h3 class="wi-h3">como a posição é estimada</h3>
+            <p>Com um único receptor parado, só a distância é observável: ela vem do RSSI pelo modelo log-distância, com a perda típica do ambiente. O azimute não dá para medir com uma antena. Rádios do mesmo AP dividem a direção, redes cujo sinal oscila junto ficam próximas e uma semente fixa mantém o desenho estável. Por isso a interface mostra um anel de distância e um setor provável, não um ponto exato.</p>
+          </div>
+        </div>
+        <svg class="wi-flow" viewBox="0 0 420 500" role="img" aria-labelledby="wi-flow-desc" data-reveal>
+          <desc id="wi-flow-desc">Quatro fontes de varredura (macOS com CoreWLAN, Linux com nmcli e iw, Windows com netsh wlan e o modo demo) alimentam o engine em Bun, que publica um retrato por segundo para o terminal e para o navegador 3D.</desc>
+          <g class="wi-flow__wires">
+            <path id="wi-flow-a" d="M48 56C48 130 210 118 210 196"/>
+            <path id="wi-flow-b" d="M156 56C156 130 210 130 210 196"/>
+            <path id="wi-flow-c" d="M264 56C264 130 210 130 210 196"/>
+            <path id="wi-flow-d" d="M372 56C372 130 210 118 210 196"/>
+            <path id="wi-flow-e" d="M210 300C210 368 105 352 105 420"/>
+            <path id="wi-flow-f" d="M210 300C210 368 315 352 315 420"/>
+          </g>
+          <g class="wi-flow__src">
+            <rect x="0" y="0" width="96" height="56" rx="10"/><text x="48" y="24">macOS</text><text class="wi-flow__sub" x="48" y="42">CoreWLAN</text>
+            <rect x="108" y="0" width="96" height="56" rx="10"/><text x="156" y="24">Linux</text><text class="wi-flow__sub" x="156" y="42">nmcli + iw</text>
+            <rect x="216" y="0" width="96" height="56" rx="10"/><text x="264" y="24">Windows</text><text class="wi-flow__sub" x="264" y="42">netsh wlan</text>
+            <rect x="324" y="0" width="96" height="56" rx="10"/><text x="372" y="24">Demo</text><text class="wi-flow__sub" x="372" y="42">sintético</text>
+          </g>
+          <g class="wi-flow__engine">
+            <rect x="70" y="196" width="280" height="104" rx="14"/>
+            <text class="wi-flow__big" x="210" y="234">engine em Bun</text>
+            <text class="wi-flow__sub" x="210" y="258">Kalman · modelo RF · posição</text>
+            <text class="wi-flow__sub" x="210" y="278">espectro · ping · eventos</text>
+          </g>
+          <text class="wi-flow__sub wi-flow__rate" x="210" y="396">1 retrato/s</text>
+          <g class="wi-flow__out">
+            <rect x="10" y="420" width="190" height="72" rx="12"/><text x="105" y="452">Terminal</text><text class="wi-flow__sub" x="105" y="472">comando wi</text>
+            <rect x="220" y="420" width="190" height="72" rx="12"/><text x="315" y="452">Navegador 3D</text><text class="wi-flow__sub" x="315" y="472">Three.js · WebSocket</text>
+          </g>
+          <g class="wi-flow__packets">
+            <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#wi-flow-a"/></animateMotion></circle>
+            <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-0.6s"><mpath href="#wi-flow-b"/></animateMotion></circle>
+            <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.2s"><mpath href="#wi-flow-c"/></animateMotion></circle>
+            <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.8s"><mpath href="#wi-flow-d"/></animateMotion></circle>
+            <circle r="4"><animateMotion dur="1s" repeatCount="indefinite" begin="-0.4s"><mpath href="#wi-flow-e"/></animateMotion></circle>
+            <circle r="4"><animateMotion dur="1s" repeatCount="indefinite" begin="-0.4s"><mpath href="#wi-flow-f"/></animateMotion></circle>
+          </g>
+        </svg>
+        <dl class="wi-layers" data-reveal>
+          <div><dt>rádio</dt><dd>RSSI filtrado, ruído e SNR, canal, largura, geração Wi-Fi e taxa teórica</dd></div>
+          <div><dt>segurança</dt><dd>da rede aberta ao WPA3, com nota de A a F</dd></div>
+          <div><dt>identidade</dt><dd>SSID, BSSID, fabricante pelo OUI e rádios do mesmo AP agrupados</dd></div>
+          <div><dt>espaço</dt><dd>distância com faixa de incerteza, azimute provável e altura</dd></div>
+          <div><dt>espectro</dt><dd>ocupação por canal, interferência e o melhor canal de cada banda</dd></div>
+          <div><dt>link</dt><dd>sinal, taxa, MCS, IP, gateway, roteador e DNS ao vivo</dd></div>
+          <div><dt>rede</dt><dd>latência, jitter e perda até o gateway e até a internet</dd></div>
+          <div><dt>eventos</dt><dd>redes novas e perdidas, roaming, troca de canal e quedas</dd></div>
+        </dl>
+      </section>
+
+      <section class="wi-section wi-native" aria-labelledby="wi-sistemas-titulo">
+        <div class="wi-head" data-reveal>
+          <p class="wi-kicker">plataformas</p>
+          <h2 class="wi-h2" id="wi-sistemas-titulo">nativo em cada sistema</h2>
+        </div>
+        <ul class="wi-native__list">
+          <li data-reveal><span class="wi-native__icon" data-icon="apple" aria-hidden="true"></span><b>macOS</b><span>CoreWLAN, por um helper em Swift compilado no primeiro uso</span></li>
+          <li data-reveal style="--i:1"><span class="wi-native__icon" data-icon="linux" aria-hidden="true"></span><b>Linux</b><span>nmcli, do NetworkManager, e iw para o link</span></li>
+          <li data-reveal style="--i:2"><span class="wi-native__icon" data-icon="windows" aria-hidden="true"></span><b>Windows</b><span>netsh wlan, com a saída em inglês ou em português</span></li>
+          <li data-reveal style="--i:3"><span class="wi-native__icon" data-icon="demo" aria-hidden="true"></span><b>Demo</b><span>uma vizinhança sintética, para testar sem hardware</span></li>
+        </ul>
+        <div class="wi-privacy" data-reveal>
+          <h3 class="wi-h3">tudo roda na sua máquina</h3>
+          <p>O servidor da visualização 3D escuta só em 127.0.0.1 e recusa origens que não sejam locais. Para a rede saem só o ping até o gateway e até 1.1.1.1, a fonte da interface e, quando você pede, a base de fabricantes da IEEE.</p>
+        </div>
+      </section>
+
+      <section class="wi-section wi-start" aria-labelledby="wi-comece-titulo">
+        <div class="wi-head" data-reveal>
+          <p class="wi-kicker">comece agora</p>
+          <h2 class="wi-h2" id="wi-comece-titulo">do clone ao radar</h2>
+          <p class="wi-head__text">O <code>npm install</code> já traz o Bun local, o Three.js e o resto. No macOS, rode <code>npm run authorize</code> uma vez e aceite o pedido de Localização: sem ele o sistema esconde SSID e BSSID.</p>
+        </div>
+        <figure class="wi-term" data-reveal>
+          <div class="wi-window__bar"><span class="wi-window__dots" aria-hidden="true"></span><span class="wi-window__url">terminal</span><button class="wi-copy" type="button" hidden>copiar</button></div>
+          <pre class="wi-term__code"><code><span class="wi-term__line" data-cmd="git clone https://github.com/Dellacarmo/Wi-diagnostics &amp;&amp; cd Wi-diagnostics"><span class="wi-term__p">$</span> git clone https://github.com/Dellacarmo/Wi-diagnostics &amp;&amp; cd Wi-diagnostics</span>
+<span class="wi-term__line" data-cmd="npm install"><span class="wi-term__p">$</span> npm install     <span class="wi-term__c"># o Bun local, o Three.js e o resto</span></span>
+<span class="wi-term__line" data-cmd="npm run cli"><span class="wi-term__p">$</span> npm run cli     <span class="wi-term__c"># painel no terminal</span></span>
+<span class="wi-term__line"><span class="wi-term__p">$</span> npm run web    <span class="wi-term__c"># 3D no navegador, em 127.0.0.1:3333</span></span>
+<span class="wi-term__line"><span class="wi-term__p">$</span> npm run demo    <span class="wi-term__c"># sem hardware: a vizinhança sintética</span></span></code></pre>
+        </figure>
+      </section>
+
+      <footer class="wi-end">
+        <div class="wi-endcard" data-reveal>
+          <svg class="wi-mark" viewBox="0 0 560 280" aria-hidden="true"><path d="M0 280 280 0v280z"/><path class="wi-mark__b" d="M280 0h280L280 280z"/></svg>
+          <p class="wi-endcard__name">WI<b>//</b>DIAG</p>
+          <p class="wi-endcard__tag">Veja o invisível.</p>
+          <p class="wi-endcard__cmds"><code>$ npm run cli</code><code>$ npm run web</code></p>
+        </div>
+        <div class="wi-credits" data-reveal>
+          <p class="wi-kicker">um projeto dellacarmo</p>
+          <ul class="wi-credits__people">
+            <li class="wi-person wi-person--felipe"><img src="./src/img/felipe-sq.jpg" width="510" height="510" alt="" loading="lazy" decoding="async"><span><b>Felipe Medeiros</b><a href="https://github.com/felipe-dpmedeiros" rel="noopener">@felipe-dpmedeiros</a></span></li>
+            <li class="wi-person wi-person--enzo"><img src="./src/img/enzo-sq.jpg" width="340" height="340" alt="" loading="lazy" decoding="async"><span><b>Enzo Hessel</b><a href="https://github.com/EnzoHessel" rel="noopener">@EnzoHessel</a></span></li>
+          </ul>
+          <p class="wi-credits__text">Código aberto sob a licença Apache-2.0. Quem usar o código mantém os créditos do NOTICE e indica o que mudou; a licença não cobre o nome WI//DIAG nem a marca ◢◤.</p>
+          <ul class="wi-credits__links">
+            <li><a href="https://github.com/Dellacarmo/Wi-diagnostics" rel="noopener">Repositório</a></li>
+            <li><a href="https://github.com/Dellacarmo/Wi-diagnostics/blob/main/LICENSE" rel="noopener">Licença</a></li>
+            <li><a href="https://github.com/Dellacarmo/Wi-diagnostics/blob/main/CONTRIBUTING.md" rel="noopener">Como contribuir</a></li>
+          </ul>
+        </div>
+        <a class="wi-back" href="#projetos" data-back><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M20 12H6M12 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>todos os projetos</a>
+      </footer>
+    </article>
   </main>
 
   <!-- RODAPÉ: o nome construído em blocos: della em amarelo, carmo em azul -->
@@ -284,6 +612,7 @@
       <ul class="foot__col" aria-label="Seções">
         <li><a class="textlink" href="#nome">O nome</a></li>
         <li><a class="textlink" href="#areas">Áreas</a></li>
+        <li><a class="textlink" href="#projetos">Projetos</a></li>
         <li><a class="textlink" href="#equipe">Equipe</a></li>
         <li><a class="textlink" href="#processo">Processo</a></li>
         <li><a class="textlink" href="#contato">Contato</a></li>

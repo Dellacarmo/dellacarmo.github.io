@@ -286,6 +286,7 @@ export function initHero() {
     window.addEventListener('scroll', () => {
       if (!state.live) return;
       const r = panel.getBoundingClientRect();
+      if (!r.height) return; // a home está escondida atrás de uma página de projeto
       if (r.bottom < 0 && state.scrollSplit > 0) return;
       state.scrollSplit = clamp(-r.top / (r.height * 0.9)) * g.size * 0.26;
       loop.kick();
@@ -296,8 +297,8 @@ export function initHero() {
   let first = true;
   const layout = () => {
     fitMark();
-    measure();
     clearIntro();
+    measure();
     build();
     if (state.live) svg.classList.add('is-drawn', 'is-live');
     render();

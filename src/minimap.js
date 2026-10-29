@@ -7,6 +7,7 @@ const SECTIONS = [
   ['#nome', 'o nome'],
   ['#proposito', 'propósito'],
   ['#areas', 'áreas'],
+  ['#projetos', 'projetos'],
   ['#equipe', 'equipe'],
   ['#processo', 'processo'],
   ['#contato', 'contato'],

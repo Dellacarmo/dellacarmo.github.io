@@ -10,6 +10,9 @@ import { initMinimap } from './minimap.js';
 import { initCodeWater } from './codewater.js';
 import { initTeam, initYear, initScrub, initCopy } from './extras.js';
 import { initLog } from './log.js';
+import { initPlayers } from './youtube.js';
+import { initRouter } from './router.js';
+import { initWiDiag } from './projetos/wi-diag/wi-diag.js';
 
 const hero = initHero();
 const blocks = initBlocks();
@@ -26,10 +29,23 @@ initCopy();
 initLog();
 initMagnetic();
 initReveal();
+initPlayers();
+initWiDiag();
+
+// com um projeto aberto a home fica escondida: as medidas dela esperam até ela voltar
+let homeStale = false;
+const router = initRouter({
+  onHome: () => {
+    if (!homeStale) return;
+    homeStale = false;
+    layout();
+  },
+});
 
 const layout = () => {
-  hero.layout();
   blocks.fit();
+  if (router.isCase()) { homeStale = true; return; }
+  hero.layout();
   story.layout();
   trays.layout();
   water.layout();
@@ -45,7 +61,11 @@ window.addEventListener('resize', () => {
   clearTimeout(timer);
   timer = setTimeout(() => {
     // no celular a barra do navegador muda só a altura: não precisa refazer o hero
-    if (Math.abs(window.innerWidth - lastWidth) < 2) { story.layout(); map.layout(); return; }
+    if (Math.abs(window.innerWidth - lastWidth) < 2) {
+      if (router.isCase()) homeStale = true;
+      else { story.layout(); map.layout(); }
+      return;
+    }
     lastWidth = window.innerWidth;
     layout();
   }, 140);
@@ -59,6 +79,7 @@ if ('ResizeObserver' in window) {
   new ResizeObserver(() => {
     cancelAnimationFrame(pending);
     pending = requestAnimationFrame(() => {
+      if (router.isCase()) return;
       map.layout();
       if (team && Math.abs(team.offsetHeight - teamHeight) > 2) { teamHeight = team.offsetHeight; water.layout(); }
     });
